@@ -1,6 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -8,24 +16,30 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.options .grid {
+.container .grid {
+  display: -ms-grid;
   display: grid;
   gap: 2em;
   text-align: center;
+  padding: 2em;
 }
 
 @media (min-width: 560px) {
-  .options .grid {
+  .container .grid {
+    -ms-grid-columns: 340px 340px;
     grid-template-columns: 340px 340px;
+    padding: 2em;
   }
 }
 
 @media (min-width: 1098px) {
-  .options .grid {
+  .container .grid {
     grid-template-columns: repeat(3, 340px);
+    -ms-flex-line-pack: center;
     align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    height: calc(100vh - 1em - 48px - 1.5em);
   }
 }
 
@@ -33,31 +47,34 @@ body {
   margin-bottom: 0.5em;
   min-height: 230px;
   width: 340px;
+  -o-object-fit: cover;
   object-fit: cover;
-  /* transition: transform 500ms; */
 }
 
-
 .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .card {
-  /* Add shadows to create the "card" effect */
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-/* On mouse-over, add a deeper shadow */
 .card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 .card button {
   position: absolute;
   margin-left: 16px;
   margin-top: 16px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 9%;
   color: rgb(182, 182, 182);
@@ -66,43 +83,50 @@ body {
   font-weight: bold;
 }
 
-
 .card button:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
+.cardText {
   padding-top: 35px;
   padding-right: 35px;
   padding-bottom: 70px;
   padding-left: 35px;
 }
 
-.container p {
+.cardText p {
   text-align: left;
 }
 
-.container p:last-of-type {
+.cardText p:first-of-type {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.cardText p:last-of-type {
   color: grey;
   font-size: 12px;
   margin-top: 15px;
   margin-bottom: 40px;
 }
 
-.container span:first-of-type {
+.cardText span:first-of-type {
   float: left;
   font-weight: bold;
 }
 
-.container span:last-of-type {
+.cardText span:last-of-type {
   float: right;
   color: grey;
 }
 
-
 @media (min-width: 1200px) {
-  .containerOptions {
+  .container {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
